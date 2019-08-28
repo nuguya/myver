@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <header>
+      <div class="signup__title">
+        <h1>회원가입</h1>
+      </div>
+    </header>
+    <main>
+      <div class="signup__fillarea">
+        <form>
+          <div class="signup__fillarea__id">
+            <span class="signup__fillarea__text">아이디</span>
+            <div class="signup__fillarea__longbox">
+              <input type="text" name="userid" />
+            </div>
+          </div>
+          <div class="signup__fillarea__passwd">
+            <span class="signup__fillarea__text">비밀번호</span>
+            <div class="signup__fillarea__longbox">
+              <input type="password" name="password" />
+            </div>
+          </div>
+          <div class="signup__fillarea__passwdcheck">
+            <span class="signup__fillarea__text">비밀번호 재확인</span>
+            <div class="signup__fillarea__longbox">
+              <input type="password" name="re_password" />
+            </div>
+          </div>
+          <div class="signup__fillarea__name">
+            <span class="signup__fillarea__text">이름</span>
+            <div class="signup__fillarea__longbox">
+              <input type="text" name="name" />
+            </div>
+          </div>
+          <div class="signup__fillarea__birthday">
+            <span class="signup__fillarea__text">생년월일</span>
+            <div class="signup__elements__birthday__year">
+              <input type="text" name="year" />
+            </div>
+            <div class="signup__elements__birthday__month">
+              <select name="fruit">
+                <option selected>월</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <div class="signup__elements__birthday__day">
+              <input type="text" name="day" />
+            </div>
+          </div>
+          <div class="signup__fillarea__sex">
+            <span class="signup__fillarea__text">성별</span>
+            <div class="signup__fillarea__longbox">
+              <input type="text" name="sex" />
+            </div>
+          </div>
+          <div class="signup__fillarea__email">
+            <span class="signup__fillarea__text">이메일</span>
+            <div class="signup__fillarea__longbox">
+              <input type="text" name="email" />
+            </div>
+          </div>
+          <div class="signup__fillarea__phone">
+            <span class="signup__fillarea__text">전화번호</span>
+            <div class="signup__fillarea__longbox">
+              <input type="text" name="phone_number" />
+            </div>
+          </div>
+          <div class="signup__fillarea__favorate">
+            <span class="signup__fillarea__text">관심사</span>
+            <div class="signup__fillarea__longbox">
+              <input type="text" name="favorate" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="signup__checkarea">
+        <div class="signup__checkarea_checkbox">
+          <input type="checkbox" name="agreement" />
+        </div>
+        <span class="signup__checkarea__text">약관에 동의합니다.</span>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
