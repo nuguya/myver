@@ -13,8 +13,8 @@
       </div>
     </header>
     <main>
-      <div class="signup__fillarea">
-        <form>
+      <form>
+        <div class="signup__fillarea">
           <div class="signup__fillarea__id">
             <span class="signup__fillarea__text">아이디</span>
             <div class="signup__fillarea__longbox">
@@ -45,7 +45,7 @@
               <input type="text" name="year" />
             </div>
             <div class="signup__elements__birthday__month">
-              <select name="fruit">
+              <select name="month">
                 <option selected>월</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -68,7 +68,11 @@
           <div class="signup__fillarea__sex">
             <span class="signup__fillarea__text">성별</span>
             <div class="signup__fillarea__longbox">
-              <input type="text" name="sex" />
+              <select name="sex">
+                <option selected>성별</option>
+                <option value="1">남</option>
+                <option value="2">녀</option>
+              </select>
             </div>
           </div>
           <div class="signup__fillarea__email">
@@ -89,15 +93,25 @@
               <input type="text" name="favorate" />
             </div>
           </div>
-        </form>
-      </div>
-      <div class="signup__checkarea">
-        <div class="signup__checkarea_checkbox">
-          <input type="checkbox" name="agreement" />
         </div>
-        <span class="signup__checkarea__text">약관에 동의합니다.</span>
-      </div>
+        <div class="signup__checkarea">
+          <div class="signup__checkarea_checkbox">
+            <input type="checkbox" name="agreement" />
+          </div>
+          <span class="signup__checkarea__text">약관에 동의합니다.</span>
+        </div>
+        <div class="signup__buttonarea">
+          <div class="signup__buttonarea__reset">
+            <button type="button" name="reset">초기화</button>
+          </div>
+          <div class="signup__buttonarea_submit">
+            <input type="submit" value="가입하기" />
+          </div>
+        </div>
+      </form>
     </main>
-    <footer></footer>
+    <footer>
+      <p>created by connect-foundation</p>
+    </footer>
   </body>
 </html>
