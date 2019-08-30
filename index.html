@@ -4,58 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>회원가입</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <div class="signup__title">
         <h1>회원가입</h1>
       </div>
     </header>
-    <main>
+    <main class="main">
       <form>
-        <div class="signup__fillarea">
-          <div class="signup__fillarea__id">
-            <span class="signup__fillarea__text">아이디</span>
-            <div class="signup__fillarea__longbox">
-              <input type="text" name="userid" id="userid" />
-            </div>
-            <div class="signup__fillarea__id__comment">
-              <p id="id__comment"></p>
-            </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">아이디</span>
+          <div class="signup__main__contents__input">
+            <input type="text" name="userid" id="userid" class="input__box" />
           </div>
-          <div class="signup__fillarea__passwd">
-            <span class="signup__fillarea__text">비밀번호</span>
-            <div class="signup__fillarea__longbox">
-              <input type="password" name="password" id="password" />
-            </div>
-            <div class="signup__fillarea__password__comment">
-              <p id="password__comment"></p>
-            </div>
+          <div class="signup__main__contents__comment">
+            <p id="id__comment"></p>
           </div>
-          <div class="signup__fillarea__passwdcheck">
-            <span class="signup__fillarea__text">비밀번호 재확인</span>
-            <div class="signup__fillarea__longbox">
-              <input type="password" name="re_password" id="re_password" />
-            </div>
-            <div class="signup__fillarea__passwdcheck__comment">
-              <p id="passwdcheck__comment"></p>
-            </div>
+        </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">비밀번호</span>
+          <div class="signup__main__contents__input">
+            <input type="password" name="password" id="password" class="input__box" />
           </div>
-          <div class="signup__fillarea__name">
-            <span class="signup__fillarea__text">이름</span>
-            <div class="signup__fillarea__longbox">
-              <input type="text" name="name" id="name" />
-            </div>
+          <div class="signup__main__contents__comment">
+            <p id="password__comment"></p>
           </div>
-          <div class="signup__fillarea__birthday">
-            <span class="signup__fillarea__text">생년월일</span>
-            <div class="signup__elements__birthday__year">
-              <input type="text" name="year" id="year" />
+        </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">비밀번호 재확인</span>
+          <div class="signup__main__contents__input">
+            <input type="password" name="re_password" id="re_password" class="input__box" />
+          </div>
+          <div class="signup__main__contents__comment">
+            <p id="passwdcheck__comment"></p>
+          </div>
+        </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">이름</span>
+          <div class="signup__main__contents__input">
+            <input type="text" name="name" id="name" class="input__box" />
+          </div>
+          <div class="signup__main__contents__comment">
+            <p id="name__comment"></p>
+          </div>
+        </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">생년월일</span>
+          <div class="signup__main__contents__birthday">
+            <div class="signup__elements__birthday__element">
+              <input type="text" name="year" id="year" class="birthday" />
             </div>
-            <div class="signup__elements__birthday__month">
-              <select name="month" id="month">
+            <div class="signup__elements__birthday__element">
+              <select name="month" id="month" class="birthday">
                 <option selected>월</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -71,53 +74,53 @@
                 <option value="12">12</option>
               </select>
             </div>
-            <div class="signup__elements__birthday__day">
-              <input type="text" name="day" id="day" />
-            </div>
-          </div>
-          <div class="signup__fillarea__sex">
-            <span class="signup__fillarea__text">성별</span>
-            <div class="signup__fillarea__longbox">
-              <select name="sex" id="sex">
-                <option selected>성별</option>
-                <option value="1">남</option>
-                <option value="2">녀</option>
-              </select>
-            </div>
-          </div>
-          <div class="signup__fillarea__email">
-            <span class="signup__fillarea__text">이메일</span>
-            <div class="signup__fillarea__longbox">
-              <input type="text" name="email" id="email" />
-            </div>
-            <div class="signup__fillarea__email__comment">
-              <p id="email__comment"></p>
-            </div>
-          </div>
-          <div class="signup__fillarea__phone">
-            <span class="signup__fillarea__text">전화번호</span>
-            <div class="signup__fillarea__longbox">
-              <input type="text" name="phone_number" id="phone_number" />
-            </div>
-            <div class="signup__fillarea__phone_number__comment">
-              <p id="phone_number__comment"></p>
-            </div>
-          </div>
-          <div class="signup__fillarea__favorate">
-            <span class="signup__fillarea__text">관심사</span>
-            <div class="signup__fillarea__longbox">
-              <input type="text" name="favorate" id="favorate" />
+            <div class="signup__elements__birthday__element">
+              <input type="text" name="day" id="day" class="birthday" />
             </div>
           </div>
         </div>
-        <div class="signup__checkarea">
-          <div class="signup__checkarea_checkbox">
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">성별</span>
+          <div class="signup__main__contents__input">
+            <select name="sex" id="sex">
+              <option selected>성별</option>
+              <option value="1">남</option>
+              <option value="2">녀</option>
+            </select>
+          </div>
+        </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">이메일</span>
+          <div class="signup__main__contents__input">
+            <input type="text" name="email" id="email" class="input__box" />
+          </div>
+          <div class="signup__main__contents__comment">
+            <p id="email__comment"></p>
+          </div>
+        </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">전화번호</span>
+          <div class="signup__main__contents__input">
+            <input type="text" name="phone_number" id="phone_number" class="input__box" />
+          </div>
+          <div class="signup__main__contents__comment">
+            <p id="phone_number__comment"></p>
+          </div>
+        </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__contents__text">관심사</span>
+          <div class="signup__main__contents__input">
+            <input type="text" name="favorate" id="favorate" class="input__box" />
+          </div>
+        </div>
+        <div class="signup__main__contents">
+          <span class="signup__main__checkarea__text">약관에 동의합니다.</span>
+          <div class="signup__main__checkarea_checkbox">
             <input type="checkbox" name="agreement" id="agreement" />
           </div>
-          <span class="signup__checkarea__text">약관에 동의합니다.</span>
         </div>
-        <div class="signup__buttonarea">
-          <div class="signup__buttonarea__reset">
+        <div class="signup__main__contents">
+          <div class="signup__main__buttonarea__reset">
             <button type="button" name="reset" id="reset">초기화</button>
           </div>
           <div class="signup__buttonarea_submit">
@@ -125,10 +128,7 @@
           </div>
         </div>
       </form>
-      <script type="text/javascript" src="./script/signup.js"></script>
+      <script type="text/javascript" src="./js/signup.js"></script>
     </main>
-    <footer>
-      <p>created by connect-foundation</p>
-    </footer>
   </body>
 </html>
