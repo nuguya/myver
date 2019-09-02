@@ -43,6 +43,12 @@ p {
   padding: 0;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .signup__title {
   color: #2db400;
   max-width: 28.75em;
@@ -55,6 +61,8 @@ p {
 }
 
 .signup__main__contents {
+  /* display: flex;
+  flex-direction: column; */
   max-width: 28.75em;
   height: 5.938em;
   margin: 0 auto;
@@ -89,7 +97,7 @@ p {
   justify-content: space-between;
 }
 
-.signup__elements__birthday__element {
+.signup__main__contents__birthday__element {
   height: 2.5em;
   width: 30%;
   padding: 0.313em;
@@ -111,6 +119,10 @@ p {
 
 .signup__main__checkarea_checkbox {
   display: inline;
+}
+
+.signup__main__checkarea__text {
+  text-decoration: underline;
 }
 
 .signup__buttonarea {
@@ -137,4 +149,70 @@ p {
   color: white;
   background-color: #2db400;
   border: none;
+}
+
+.commentary {
+  font-size: 0.7em;
+  margin-top: 0.438em;
+}
+
+.signup__main__contents__catecory {
+  height: 2.5em;
+  width: 28.75em;
+  padding: 0.313em;
+  margin-top: 0.438em;
+  margin-bottom: 0;
+  border: solid #dadada 0.063em;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.signup__main__contents__catecory__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: white;
+}
+
+.signup__main__content__category__input {
+  background-color: white;
+  border: none;
+  text-decoration: none;
+}
+
+#favorate {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#favorate:focus {
+  outline: none;
+}
+
+.category_container {
+  background-color: white;
+  border: solid 1px gray;
+  padding: 1px 5px;
+  border-radius: 5px;
+  margin-right: 0.438em;
+  display: flex;
+  white-space: nowrap;
+  flex-direction: row;
+}
+
+.category_cancel {
+  background-color: white;
+}
+
+.category_contents {
+  background-color: white;
+  text-align: center;
+}
+
+#endarea {
+  margin-top: 15px;
 }

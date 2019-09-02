@@ -21,7 +21,7 @@
             <input type="text" name="userid" id="userid" class="input__box" />
           </div>
           <div class="signup__main__contents__comment">
-            <p id="id__comment"></p>
+            <p id="id__comment" class="commentary"></p>
           </div>
         </div>
         <div class="signup__main__contents">
@@ -30,7 +30,7 @@
             <input type="password" name="password" id="password" class="input__box" />
           </div>
           <div class="signup__main__contents__comment">
-            <p id="password__comment"></p>
+            <p id="password__comment" class="commentary"></p>
           </div>
         </div>
         <div class="signup__main__contents">
@@ -39,7 +39,7 @@
             <input type="password" name="re_password" id="re_password" class="input__box" />
           </div>
           <div class="signup__main__contents__comment">
-            <p id="passwdcheck__comment"></p>
+            <p id="passwdcheck__comment" class="commentary"></p>
           </div>
         </div>
         <div class="signup__main__contents">
@@ -48,17 +48,23 @@
             <input type="text" name="name" id="name" class="input__box" />
           </div>
           <div class="signup__main__contents__comment">
-            <p id="name__comment"></p>
+            <p id="name__comment" class="commentary"></p>
           </div>
         </div>
         <div class="signup__main__contents">
           <span class="signup__main__contents__text">생년월일</span>
           <div class="signup__main__contents__birthday">
-            <div class="signup__elements__birthday__element">
-              <input type="text" name="year" id="year" class="birthday" placeholder="년(4자)" />
+            <div class="signup__main__contents__birthday__element">
+              <input
+                type="text"
+                name="year"
+                id="birthday_year"
+                class="birthday"
+                placeholder="년(4자)"
+              />
             </div>
-            <div class="signup__elements__birthday__element">
-              <select name="month" id="month" class="birthday">
+            <div class="signup__main__contents__birthday__element">
+              <select name="month" id="birthday_month" class="birthday">
                 <option selected>월</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -74,9 +80,12 @@
                 <option value="12">12</option>
               </select>
             </div>
-            <div class="signup__elements__birthday__element">
-              <input type="text" name="day" id="day" class="birthday" placeholder="일" />
+            <div class="signup__main__contents__birthday__element">
+              <input type="text" name="day" id="birthday_date" class="birthday" placeholder="일" />
             </div>
+          </div>
+          <div class="signup__main__contents__comment">
+            <p id="birthday__comment" class="commentary"></p>
           </div>
         </div>
         <div class="signup__main__contents">
@@ -88,6 +97,9 @@
               <option value="2">녀</option>
             </select>
           </div>
+          <div class="signup__main__contents__comment">
+            <p id="sex__comment" class="commentary"></p>
+          </div>
         </div>
         <div class="signup__main__contents">
           <span class="signup__main__contents__text">이메일</span>
@@ -95,25 +107,37 @@
             <input type="text" name="email" id="email" class="input__box" />
           </div>
           <div class="signup__main__contents__comment">
-            <p id="email__comment"></p>
+            <p id="email__comment" class="commentary"></p>
           </div>
         </div>
         <div class="signup__main__contents">
           <span class="signup__main__contents__text">전화번호</span>
           <div class="signup__main__contents__input">
-            <input type="text" name="phone_number" id="phone_number" class="input__box" />
+            <input
+              type="text"
+              name="phone_number"
+              id="phone_number"
+              class="input__box"
+              placeholder="- 없이 입력해주세요 예) 01012345678"
+            />
           </div>
           <div class="signup__main__contents__comment">
-            <p id="phone_number__comment"></p>
+            <p id="phone_number__comment" class="commentary"></p>
           </div>
         </div>
         <div class="signup__main__contents">
           <span class="signup__main__contents__text">관심사</span>
-          <div class="signup__main__contents__input">
-            <input type="text" name="favorate" id="favorate" class="input__box" />
+          <div class="signup__main__contents__catecory">
+            <ul class="signup__main__contents__catecory__content"></ul>
+            <div class="signup__main__content__category__input">
+              <input type="text" name="favorate" id="favorate" />
+            </div>
+          </div>
+          <div class="signup__main__contents__comment">
+            <p id="favorate__comment" class="commentary"></p>
           </div>
         </div>
-        <div class="signup__main__contents">
+        <div class="signup__main__contents" id="endarea">
           <span class="signup__main__checkarea__text">약관에 동의합니다.</span>
           <div class="signup__main__checkarea_checkbox">
             <input type="checkbox" name="agreement" id="agreement" />
@@ -131,6 +155,7 @@
         </div>
       </form>
       <script type="text/javascript" src="./js/signup.js"></script>
+      <script type="text/javascript" src="./js/category.js"></script>
     </main>
   </body>
 </html>
