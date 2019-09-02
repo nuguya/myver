@@ -15,13 +15,26 @@ input[type="text"],
   box-shadow: none;
 }
 
-input[type="select"] {
-  border: none;
+input[type="checkbox"] {
   background-image: none;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  margin: -2px 8px 0 0;
+  text-align: center;
+  vertical-align: middle;
+  background: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+}
+
+select {
+  border: none;
+  -moz-appearance: none;
   background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  appearance: none;
+  -ms-appearance: none;
 }
 
 p {
@@ -32,32 +45,32 @@ p {
 
 .signup__title {
   color: #2db400;
-  max-width: 460px;
+  max-width: 28.75em;
   text-align: center;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 .main {
-  margin: 50px;
+  margin: 3.125em;
 }
 
 .signup__main__contents {
-  max-width: 460px;
-  height: 95px;
-  margin: 0px auto;
+  max-width: 28.75em;
+  height: 5.938em;
+  margin: 0 auto;
 }
 
 .signup__main__contents__text {
-  height: 25px;
+  height: 1.563em;
 }
 
 .signup__main__contents__input {
-  height: 40px;
-  width: 460px;
-  padding: 5px;
-  margin-top: 7px;
-  margin-bottom: 0px;
-  border: solid #dadada 1px;
+  height: 2.5em;
+  width: 28.75em;
+  padding: 0.313em;
+  margin-top: 0.438em;
+  margin-bottom: 0;
+  border: solid #dadada 0.063em;
   background-color: white;
 }
 
@@ -67,27 +80,61 @@ p {
 }
 
 .signup__main__contents__comment {
-  margin-top: 0px;
-  height: 15px;
+  margin-top: 0;
+  height: 0.938em;
 }
 
 .signup__main__contents__birthday {
-  height: 40px;
-  width: 460px;
-  padding: 5px;
-  margin-top: 7px;
-  margin-bottom: 0px;
   display: flex;
   justify-content: space-between;
 }
 
 .signup__elements__birthday__element {
-  border: solid #dadada 1px;
-  display: inline;
+  height: 2.5em;
   width: 30%;
+  padding: 0.313em;
+  margin-top: 0.438em;
+  margin-bottom: 0;
+  border: solid #dadada 0.063em;
   background-color: white;
 }
 
 .birthday {
+  height: 100%;
   width: 100%;
+}
+
+#sex {
+  height: 100%;
+  width: 100%;
+}
+
+.signup__main__checkarea_checkbox {
+  display: inline;
+}
+
+.signup__buttonarea {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5em;
+  width: 28.75em;
+  margin-top: 0.438em;
+}
+
+.signup__buttonarea__reset {
+  width: 49%;
+  height: 100%;
+}
+
+.signup__buttonarea__submit {
+  height: 100%;
+  width: 49%;
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #2db400;
+  border: none;
 }

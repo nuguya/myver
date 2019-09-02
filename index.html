@@ -55,7 +55,7 @@
           <span class="signup__main__contents__text">생년월일</span>
           <div class="signup__main__contents__birthday">
             <div class="signup__elements__birthday__element">
-              <input type="text" name="year" id="year" class="birthday" />
+              <input type="text" name="year" id="year" class="birthday" placeholder="년(4자)" />
             </div>
             <div class="signup__elements__birthday__element">
               <select name="month" id="month" class="birthday">
@@ -75,7 +75,7 @@
               </select>
             </div>
             <div class="signup__elements__birthday__element">
-              <input type="text" name="day" id="day" class="birthday" />
+              <input type="text" name="day" id="day" class="birthday" placeholder="일" />
             </div>
           </div>
         </div>
@@ -118,13 +118,15 @@
           <div class="signup__main__checkarea_checkbox">
             <input type="checkbox" name="agreement" id="agreement" />
           </div>
-        </div>
-        <div class="signup__main__contents">
-          <div class="signup__main__buttonarea__reset">
-            <button type="button" name="reset" id="reset">초기화</button>
-          </div>
-          <div class="signup__buttonarea_submit">
-            <input type="submit" value="가입하기" id="submit" />
+          <div class="signup__buttonarea">
+            <div class="signup__buttonarea__reset">
+              <button type="button" name="reset" id="reset" class="button">초기화</button>
+            </div>
+            <div class="signup__buttonarea__submit">
+              <button type="button" name="submit" id="submit" class="button">
+                가입하기
+              </button>
+            </div>
           </div>
         </div>
       </form>

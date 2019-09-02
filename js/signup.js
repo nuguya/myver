@@ -16,6 +16,10 @@ const Validation = {
     equal: "비밀번호가 일치합니다"
   },
 
+  NAME_TEXT: {
+    invalid: "이름이 그게 맞아요?"
+  },
+
   EMAIL_TEXT: {
     invalid: "이메일 주소를 다시 확인해주세요"
   },
@@ -28,7 +32,7 @@ const Validation = {
     const userid = document.querySelector("#userid");
     const comment = document.querySelector("#id__comment");
     userid.addEventListener(
-      "change",
+      "input",
       function() {
         const validation = /^[a-z0-9_-]{5,20}$/;
         let commentary = validation.test(userid.value)
@@ -37,6 +41,13 @@ const Validation = {
         comment.innerHTML = commentary;
       }.bind(this)
     );
+    const inputBlock = userid.parentNode;
+    userid.addEventListener("focus", function() {
+      inputBlock.style.border = "solid #2db400 0.063em";
+    });
+    userid.addEventListener("blur", function() {
+      inputBlock.style.border = "";
+    });
   },
 
   validateForPassword: function() {
@@ -45,7 +56,7 @@ const Validation = {
     const regex = 0;
     const message = 1;
     password.addEventListener(
-      "change",
+      "input",
       function() {
         let pipeLine = [];
         const checkCapitalLetter = /(.*[A-Z])/;
@@ -68,6 +79,13 @@ const Validation = {
         comment.innerHTML = commentary;
       }.bind(this)
     );
+    const inputBlock = password.parentNode;
+    password.addEventListener("focus", function() {
+      inputBlock.style.border = "solid #2db400 0.063em";
+    });
+    password.addEventListener("blur", function() {
+      inputBlock.style.border = "";
+    });
   },
 
   validateForPasswordCheck: function() {
@@ -75,7 +93,7 @@ const Validation = {
     const rePassword = document.querySelector("#re_password");
     const comment = document.querySelector("#passwdcheck__comment");
     rePassword.addEventListener(
-      "change",
+      "input",
       function() {
         let commentary =
           password.value == rePassword.value && password.value != ""
@@ -84,13 +102,41 @@ const Validation = {
         comment.innerHTML = commentary;
       }.bind(this)
     );
+    const inputBlock = rePassword.parentNode;
+    rePassword.addEventListener("focus", function() {
+      inputBlock.style.border = "solid #2db400 0.063em";
+    });
+    rePassword.addEventListener("blur", function() {
+      inputBlock.style.border = "";
+    });
+  },
+
+  validateForName: function() {
+    const name = document.querySelector("#name");
+    const comment = document.querySelector("#name__comment");
+
+    name.addEventListener(
+      "change",
+      function() {
+        const validation = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣a-zA-z]{1,30}$/;
+        let commentary = validation.test(name.value) ? "" : this.NAME_TEXT.invalid;
+        comment.innerHTML = commentary;
+      }.bind(this)
+    );
+    const inputBlock = name.parentNode;
+    name.addEventListener("focus", function() {
+      inputBlock.style.border = "solid #2db400 0.063em";
+    });
+    name.addEventListener("blur", function() {
+      inputBlock.style.border = "";
+    });
   },
 
   validateForEmail: function() {
     const email = document.querySelector("#email");
     const comment = document.querySelector("#email__comment");
     email.addEventListener(
-      "change",
+      "input",
       function() {
         const validation = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
         let commentary = validation.test(email.value) ? "" : this.EMAIL_TEXT.invalid;
@@ -100,12 +146,20 @@ const Validation = {
         }
       }.bind(this)
     );
+    const inputBlock = email.parentNode;
+    email.addEventListener("focus", function() {
+      inputBlock.style.border = "solid #2db400 0.063em";
+    });
+    email.addEventListener("blur", function() {
+      inputBlock.style.border = "";
+    });
   },
+
   validPhoneNumber: function() {
     const phoneNumber = document.querySelector("#phone_number");
     const comment = document.querySelector("#phone_number__comment");
     phoneNumber.addEventListener(
-      "change",
+      "input",
       function() {
         const validation = /^(010)[0-9]{7,8}$/;
         let commentary = validation.test(phoneNumber.value) ? "" : this.PHONE_TEXT.invalid;
@@ -115,12 +169,20 @@ const Validation = {
         }
       }.bind(this)
     );
+    const inputBlock = phoneNumber.parentNode;
+    phoneNumber.addEventListener("focus", function() {
+      inputBlock.style.border = "solid #2db400 0.063em";
+    });
+    phoneNumber.addEventListener("blur", function() {
+      inputBlock.style.border = "";
+    });
   },
 
   init: function() {
     this.validateForId();
     this.validateForPassword();
     this.validateForPasswordCheck();
+    this.validateForName();
     this.validateForEmail();
     this.validPhoneNumber();
   }
