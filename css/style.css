@@ -138,9 +138,6 @@ ul {
   outline: none;
 }
 
-#agreement {
-}
-
 .signup__buttonarea {
   display: flex;
   justify-content: space-between;
@@ -170,6 +167,7 @@ ul {
 .commentary {
   font-size: 0.7em;
   margin-top: 0.438em;
+  background-color: #fafafa;
 }
 
 .signup__main__contents__catecory {

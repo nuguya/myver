@@ -348,6 +348,27 @@ const Validation = {
     });
   },
 
+  registReset: function() {
+    const resetBtn = document.querySelector("#resetbtn");
+    const form = document.querySelector("#signup_form");
+    const ulElement = document.querySelector(".signup__main__contents__catecory__content");
+    const categoryList = document.querySelector(".signup__main__contents__catecory");
+    const commentaryList = document.querySelectorAll(".commentary");
+    resetBtn.addEventListener("click", function() {
+      let response = confirm("모든 내용을 새로 작성하시겠습니까?");
+      if (response) {
+        form.reset();
+        while (ulElement.childNodes.length > 0) {
+          ulElement.lastChild.remove();
+          categoryList.style.height = "2.5em";
+        }
+        for (let comment of commentaryList) {
+          comment.innerHTML = "";
+        }
+      }
+    });
+  },
+
   init: function() {
     this.validateForId();
     this.validateForPassword();
@@ -357,6 +378,7 @@ const Validation = {
     this.validateForPhoneNumber();
     this.validateForBirthday();
     this.validateForSex();
+    this.registReset();
   }
 };
 

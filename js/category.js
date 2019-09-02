@@ -4,7 +4,7 @@ const CATEGORY_TEXT = {
   invalid: ["관심사는 3개 이상 선택해주세요", "red"],
   valid: ["", "green"]
 };
-categoryInput.addEventListener("change", function() {
+categoryInput.addEventListener("input", function() {
   const contentsList = document.querySelector(".signup__main__contents__catecory__content");
   const categoryLength = categoryInput.value.length - 1;
   const comment = document.querySelector("#favorate__comment");
