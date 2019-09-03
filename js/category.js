@@ -8,6 +8,8 @@ categoryInput.addEventListener("input", function() {
   const contentsList = document.querySelector(".signup__main__contents__catecory__content");
   const categoryLength = categoryInput.value.length - 1;
   const comment = document.querySelector("#favorate__comment");
+  const TEXT = 0,
+    COLOR = 1;
   let prevHeight = contentsList.getBoundingClientRect().height;
 
   if (categoryInput.value[0] == ",") {
@@ -23,8 +25,8 @@ categoryInput.addEventListener("input", function() {
     cancel.appendChild(document.createTextNode("ⓧ"));
     let commentary =
       contentsList.childNodes.length + 1 < 3 ? CATEGORY_TEXT.invalid : CATEGORY_TEXT.valid;
-    comment.innerHTML = commentary[0];
-    comment.style.color = commentary[1];
+    comment.innerHTML = commentary[TEXT];
+    comment.style.color = commentary[COLOR];
     cancel.addEventListener("click", function() {
       let prevHeight = contentsList.getBoundingClientRect().height;
       insertedElement.remove();

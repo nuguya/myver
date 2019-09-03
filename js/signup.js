@@ -4,6 +4,18 @@ const TEXT_COLOR = {
 };
 
 const Validation = {
+  validationList: {
+    id: false,
+    password: false,
+    repassword: false,
+    name: false,
+    birthday: false,
+    sex: false,
+    email: false,
+    phonenumber: false,
+    category: false,
+    agreement: false
+  },
   ID_TEXT: {
     occupied: ["이미 사용중인 아이디입니다.", TEXT_COLOR.wrong],
     invalid: ["아이디 형식이 유효하지 않습니다.", TEXT_COLOR.wrong],
@@ -58,9 +70,9 @@ const Validation = {
       "input",
       function() {
         const validation = /^[a-z0-9_-]{5,20}$/;
-        let commentary = validation.test(userid.value)
-          ? this.ID_TEXT.possible
-          : this.ID_TEXT.invalid;
+        let validTestValue = validation.test(userid.value);
+        let commentary = validTestValue ? this.ID_TEXT.possible : this.ID_TEXT.invalid;
+        this.validationList.id = validTestValue;
         comment.innerHTML = commentary[TEXT];
         comment.style.color = commentary[COLOR];
       }.bind(this)
@@ -98,11 +110,16 @@ const Validation = {
         const checkLength = /^.{8,16}$/;
         pipeLine.push([checkLength, this.PASSWORD_TEXT.invalidLength]);
         let result = this.PASSWORD_TEXT.safe;
-        pipeLine.forEach(cur => {
-          if (!cur[regex].test(password.value)) {
-            result = cur[message];
+        pipeLine.forEach(value => {
+          if (!value[regex].test(password.value)) {
+            result = value[message];
           }
         });
+        if (result == this.PASSWORD_TEXT.safe) {
+          this.validationList.password = true;
+        } else {
+          this.validationList.password = false;
+        }
         let commentary = result;
         comment.innerHTML = commentary[TEXT];
         comment.style.color = commentary[COLOR];
@@ -128,10 +145,9 @@ const Validation = {
     rePassword.addEventListener(
       "input",
       function() {
-        let commentary =
-          password.value == rePassword.value && password.value != ""
-            ? this.PASSWORD_TEXT.equal
-            : this.PASSWORD_TEXT.notequal;
+        let validTestValue = password.value == rePassword.value && password.value != "";
+        let commentary = validTestValue ? this.PASSWORD_TEXT.equal : this.PASSWORD_TEXT.notequal;
+        this.validationList.repassword = validTestValue;
         comment.innerHTML = commentary[TEXT];
         comment.style.color = commentary[COLOR];
       }.bind(this)
@@ -157,9 +173,9 @@ const Validation = {
       "change",
       function() {
         const validation = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣a-zA-z]{1,30}$/;
-        let commentary = validation.test(name.value)
-          ? this.NAME_TEXT.valid
-          : this.NAME_TEXT.invalid;
+        let validTestValue = validation.test(name.value);
+        let commentary = validTestValue ? this.NAME_TEXT.valid : this.NAME_TEXT.invalid;
+        this.validationList.name = validTestValue;
         comment.innerHTML = commentary[TEXT];
         comment.style.color = commentary[COLOR];
       }.bind(this)
@@ -196,13 +212,16 @@ const Validation = {
           let commentary = this.BIRTHDAY_TEXT.missingAge;
           comment.innerHTML = commentary[TEXT];
           comment.style.color = commentary[COLOR];
-          validationForBirthday[MONTH] = false;
+          validationForBirthday[YEAR] = false;
         } else {
           validationForBirthday[YEAR] = true;
           let commentary = this.BIRTHDAY_TEXT.valid;
           comment.innerHTML = commentary[TEXT];
           comment.style.color = commentary[COLOR];
         }
+        this.validationList.birthday = validationForBirthday.every(function(cur) {
+          return cur;
+        });
       }.bind(this)
     );
     birthdayYear.addEventListener("focus", function() {
@@ -228,6 +247,9 @@ const Validation = {
           comment.innerHTML = commentary[TEXT];
           comment.style.color = commentary[COLOR];
         }
+        this.validationList.birthday = validationForBirthday.every(function(cur) {
+          return cur;
+        });
       }.bind(this)
     );
 
@@ -260,6 +282,9 @@ const Validation = {
           comment.style.color = commentary[COLOR];
           validationForBirthday[DAY] = false;
         }
+        this.validationList.birthday = validationForBirthday.every(function(cur) {
+          return cur;
+        });
       }.bind(this)
     );
 
@@ -283,9 +308,9 @@ const Validation = {
       "input",
       function() {
         const validation = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-        let commentary = validation.test(email.value)
-          ? this.EMAIL_TEXT.valid
-          : this.EMAIL_TEXT.invalid;
+        let validTestValue = validation.test(email.value);
+        let commentary = validTestValue ? this.EMAIL_TEXT.valid : this.EMAIL_TEXT.invalid;
+        this.validationList.email = validTestValue;
         comment.innerHTML = commentary[TEXT];
         comment.style.color = commentary[COLOR];
       }.bind(this)
@@ -308,9 +333,9 @@ const Validation = {
       "input",
       function() {
         const validation = /^(010)[0-9]{7,8}$/;
-        let commentary = validation.test(phoneNumber.value)
-          ? this.PHONE_TEXT.valid
-          : this.PHONE_TEXT.invalid;
+        let validTestValue = validation.test(phoneNumber.value);
+        let commentary = validTestValue ? this.PHONE_TEXT.valid : this.PHONE_TEXT.invalid;
+        this.validationList.phonenumber = validTestValue;
         comment.innerHTML = commentary[TEXT];
         comment.style.color = commentary[COLOR];
       }.bind(this)
@@ -333,7 +358,9 @@ const Validation = {
     sex.addEventListener(
       "change",
       function() {
-        let commentary = sex.value == "성별" ? this.SEX_TEXT.invalid : this.SEX_TEXT.valid;
+        let validTestValue = sex.value != "성별";
+        let commentary = validTestValue ? this.SEX_TEXT.valid : this.SEX_TEXT.invalid;
+        this.validationList.sex = validTestValue;
         comment.innerHTML = commentary[TEXT];
         comment.style.color = commentary[COLOR];
       }.bind(this)
@@ -369,6 +396,55 @@ const Validation = {
     });
   },
 
+  registSignUP: function() {
+    let success = true;
+    const form = document.querySelector("#signup_form");
+    const message = {
+      id: "아이디",
+      password: "비밀번호",
+      repassword: "비밀번호 재확인",
+      name: "이름",
+      birthday: "생년월일",
+      sex: "성별",
+      email: "이메일",
+      phonenumber: "전화번호",
+      category: "관심사",
+      agreement: "약관동의"
+    };
+    const submitBtn = document.querySelector("#submitbtn");
+    const ulElement = document.querySelector(".signup__main__contents__catecory__content");
+    const agreementCheckBox = document.querySelector("#agreement");
+    const signInMain = document.querySelector("#signin__main");
+    const signUpMain = document.querySelector("#signup__main");
+    const favorate = document.querySelector("#favorate");
+    let categorys = [];
+
+    submitBtn.addEventListener(
+      "click",
+      function() {
+        this.validationList.category = ulElement.childNodes.length >= 3 ? true : false;
+        this.validationList.agreement = agreementCheckBox.checked ? true : false;
+        for (let key in this.validationList) {
+          if (!this.validationList[key]) {
+            alert(`${message[key]} 항목을 확인해주세요`);
+            success = false;
+            break;
+          }
+        }
+
+        if (success) {
+          for (let element of ulElement.childNodes) {
+            categorys.push(element.firstChild.textContent);
+          }
+          favorate.value = categorys;
+          form.submit();
+          signInMain.style.display = "block";
+          signUpMain.style.display = "none";
+        }
+      }.bind(this)
+    );
+  },
+
   init: function() {
     this.validateForId();
     this.validateForPassword();
@@ -379,6 +455,7 @@ const Validation = {
     this.validateForBirthday();
     this.validateForSex();
     this.registReset();
+    this.registSignUP();
   }
 };
 

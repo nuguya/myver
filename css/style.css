@@ -13,6 +13,7 @@ input[type="text"],
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  background-color: white;
 }
 
 input[type="checkbox"] {
@@ -49,6 +50,14 @@ ul {
   margin: 0;
 }
 
+#signin__main {
+  display: block;
+}
+
+#signup__main {
+  display: none;
+}
+
 .signup__title {
   color: #2db400;
   max-width: 28.75em;
@@ -61,14 +70,13 @@ ul {
 }
 
 .signup__main__contents {
-  /* display: flex;
-  flex-direction: column; */
   max-width: 28.75em;
   height: 5.938em;
   margin: 0 auto;
 }
 
 .signup__main__contents__text {
+  font-weight: bold;
   height: 1.563em;
 }
 
