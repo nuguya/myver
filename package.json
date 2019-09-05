@@ -1,0 +1,23 @@
+{
+  "name": "membership-login",
+  "version": "1.0.0",
+  "description": "로그인 및 회원가입 프론트엔드/백엔드 구현",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuguya/membership-login.git"
+  },
+  "author": "김근영",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nuguya/membership-login/issues"
+  },
+  "homepage": "https://github.com/nuguya/membership-login#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1"
+  }
+}
