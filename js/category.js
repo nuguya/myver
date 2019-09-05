@@ -72,7 +72,7 @@ categoryInput.addEventListener("keyup", function(event) {
           }
           categoryInput.value = lastCategory.textContent;
         }
-        console.log(ulElement.childNodes.length);
+        console.log(ulElement.childNodes);
       }
       break;
     default:

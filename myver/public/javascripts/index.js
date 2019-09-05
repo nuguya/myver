@@ -11,10 +11,16 @@ import Validation from "./handlers/signupHandler.js";
     page.innerHTML = component();
   };
 
+  window.addEventListener("popstate", function(e) {
+    this.console.log(e);
+    router(e.state.path);
+  });
+
   const routes = {
     "/": function() {
       renderHtml(Main);
       addMainEvent(router);
+      history.pushState({ path: "/" }, null, "/");
     },
     "/login": function() {
       renderHtml(Login);
@@ -22,7 +28,7 @@ import Validation from "./handlers/signupHandler.js";
     },
     "/signup": function() {
       renderHtml(Signup);
-      Validation.addSignUpEvent();
+      Validation.addSignUpEvent(router);
     }
   };
 

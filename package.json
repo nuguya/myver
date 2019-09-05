@@ -18,6 +18,7 @@
   "homepage": "https://github.com/nuguya/membership-login#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-generator": "^4.16.1"
+    "express-generator": "^4.16.1",
+    "lowdb": "^1.0.0"
   }
 }

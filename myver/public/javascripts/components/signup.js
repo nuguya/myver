@@ -4,7 +4,7 @@ const signup = () => {
           <h1>회원가입</h1>
         </div>
       </header>
-      <form id="signup_form">
+      <form id="signup_form" method="POST" action="http://127.0.0.1:3000/users">
         <div class="signup__main__contents">
           <span class="signup__main__contents__text">아이디</span>
           <div class="signup__main__contents__input">
@@ -137,8 +137,7 @@ const signup = () => {
               <button type="button" name="resetbtn" id="resetbtn" class="button">초기화</button>
             </div>
             <div class="signup__buttonarea__submit">
-              <button type="button" name="submitbtn" id="submitbtn" class="button"><a href="/">
-                가입하기</a>
+              <button type="button" name="submitbtn" id="submitbtn" class="button"><a href="/">가입하기</a>
               </button>
             </div>
           </div>

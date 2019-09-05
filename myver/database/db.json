@@ -1,0 +1,12 @@
+{
+  "users": {
+    "aaaaaa": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "emsud12": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "wlsdmswl12": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "asdfdsa": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "asdfsdaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "asdfsadf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "undefined": "{\"birthday\":\"undefined/undefined/undefined\"}",
+    "emsud": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}"
+  }
+}

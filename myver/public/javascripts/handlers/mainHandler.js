@@ -5,14 +5,14 @@ const addMainEvent = function(router) {
   login.addEventListener("click", function(e) {
     e.preventDefault();
     const path = e.target.getAttribute("href");
-    history.pushState({ path }, null, path);
+    history.pushState({ path: path }, null, path);
     router(path);
   });
 
   signup.addEventListener("click", function(e) {
     e.preventDefault();
     const path = e.target.getAttribute("href");
-    history.pushState({ path }, null, path);
+    history.pushState({ path: path }, null, path);
     router(path);
   });
 };

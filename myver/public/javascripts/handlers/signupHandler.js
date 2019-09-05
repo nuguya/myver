@@ -1,6 +1,38 @@
 import modalPopup from "./modalHandler.js";
 import addCategoriesEvent from "./categoriesHandler.js";
 
+const serialize = () => {
+  let serializer = {};
+  let categorys = [];
+  const userid = document.querySelector("#userid");
+  const password = document.querySelector("#password");
+  const name = document.querySelector("#name");
+  const birthdayYear = document.querySelector("#birthday_year");
+  const birthdayMonth = document.querySelector("#birthday_month");
+  const birthdayDate = document.querySelector("#birthday_date");
+  const email = document.querySelector("#email");
+  const phoneNumber = document.querySelector("#phone_number");
+  const sex = document.querySelector("#sex");
+  const ulElement = document.querySelector(".signup__main__contents__catecory__content");
+
+  for (let element of ulElement.childNodes) {
+    categorys.push(element.firstChild.textContent);
+  }
+
+  serializer.userid = userid.value;
+  serializer.password = password.value;
+  serializer.name = name.value;
+  serializer.year = birthdayYear.value;
+  serializer.month = birthdayMonth.value;
+  serializer.day = birthdayDate.value;
+  serializer.email = email.value;
+  serializer.phone_number = phoneNumber.value;
+  serializer.sex = sex.value;
+  serializer.favorate = categorys;
+
+  return serializer;
+};
+
 const TEXT_COLOR = {
   wrong: "red",
   right: "green"
@@ -417,14 +449,11 @@ const Validation = {
     const submitBtn = document.querySelector("#submitbtn");
     const ulElement = document.querySelector(".signup__main__contents__catecory__content");
     const agreementCheckBox = document.querySelector("#agreement");
-    const signInMain = document.querySelector("#signin__main");
-    const signUpMain = document.querySelector("#signup__main");
-    const favorate = document.querySelector("#favorate");
-    let categorys = [];
 
     submitBtn.addEventListener(
       "click",
-      function() {
+      function(e) {
+        console.log(e.target.getAttribute("href"));
         this.validationList.category = ulElement.childNodes.length >= 3 ? true : false;
         this.validationList.agreement = agreementCheckBox.checked ? true : false;
         for (let key in this.validationList) {
@@ -435,20 +464,19 @@ const Validation = {
           }
         }
 
-        if (success) {
-          for (let element of ulElement.childNodes) {
-            categorys.push(element.firstChild.textContent);
-          }
-          favorate.value = categorys;
-          form.submit();
-          signInMain.style.display = "block";
-          signUpMain.style.display = "none";
-        }
+        // if (success) {
+        console.log(router);
+        console.log(serialize());
+        e.preventDefault();
+        const path = e.target.getAttribute("href");
+        history.pushState({ path: path }, null, path);
+        router(path);
+        // }
       }.bind(this)
     );
   },
 
-  addSignUpEvent: function() {
+  addSignUpEvent: function(router) {
     this.validateForId();
     this.validateForPassword();
     this.validateForPasswordCheck();
@@ -458,7 +486,7 @@ const Validation = {
     this.validateForBirthday();
     this.validateForSex();
     this.registReset();
-    this.registSignUP();
+    this.registSignUP(router);
     modalPopup.addModalEvent();
     addCategoriesEvent();
   }
