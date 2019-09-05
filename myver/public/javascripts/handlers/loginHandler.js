@@ -1,8 +1,6 @@
-const registLoginButton = function() {
+const addLoginEvent = function(router) {
   const loginBtn = document.querySelector("#loginbtn");
   const signUpBtn = document.querySelector("#signupbtn");
-  const signInMain = document.querySelector("#signin__main");
-  const signUpMain = document.querySelector("#signup__main");
   const userid = document.querySelector("#login_userid");
   const comment = document.querySelector("#login_id__comment");
   const password = document.querySelector("#login_password");
@@ -18,6 +16,7 @@ const registLoginButton = function() {
   };
   const TEXT = 0,
     COLOR = 1;
+
   userid.addEventListener("change", function() {
     const validation = /^[a-z0-9_-]{5,20}$/;
     let validTestValue = validation.test(userid.value);
@@ -52,10 +51,12 @@ const registLoginButton = function() {
   });
 
   loginBtn.addEventListener("click", function() {});
-  signUpBtn.addEventListener("click", function() {
-    signInMain.style.display = "none";
-    signUpMain.style.display = "block";
+  signUpBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    const path = e.target.getAttribute("href");
+    history.pushState({ path }, null, path);
+    router(path);
   });
 };
 
-registLoginButton();
+export default addLoginEvent;

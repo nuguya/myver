@@ -1,9 +1,240 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: red;
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #f5f6f7;
 }
 
-a {
-  color: #00b7ff;
+input[type="text"],
+[type="password"] {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: white;
+}
+
+input[type="checkbox"] {
+  background-image: none;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  margin: -2px 8px 0 0;
+  text-align: center;
+  vertical-align: middle;
+  background: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+}
+
+select {
+  border: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  appearance: none;
+  -ms-appearance: none;
+}
+
+p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#signin__main {
+  display: block;
+}
+
+#signup__main {
+  display: none;
+}
+
+.signup__title {
+  color: #2db400;
+  max-width: 28.75em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.main {
+  margin: 3.125em;
+}
+
+.signup__main__contents {
+  max-width: 28.75em;
+  height: 5.938em;
+  margin: 0 auto;
+}
+
+.signup__main__contents__text {
+  font-weight: bold;
+  height: 1.563em;
+}
+
+.signup__main__contents__input {
+  height: 2.5em;
+  width: 28.75em;
+  padding: 0.313em;
+  margin-top: 0.438em;
+  margin-bottom: 0;
+  border: solid #dadada 0.063em;
+  background-color: white;
+}
+
+.input__box {
+  height: 100%;
+  width: 100%;
+}
+
+.signup__main__contents__comment {
+  margin-top: 0;
+  height: 0.938em;
+}
+
+.signup__main__contents__birthday {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup__main__contents__birthday__element {
+  height: 2.5em;
+  width: 30%;
+  padding: 0.313em;
+  margin-top: 0.438em;
+  margin-bottom: 0;
+  border: solid #dadada 0.063em;
+  background-color: white;
+}
+
+.birthday {
+  height: 100%;
+  width: 100%;
+}
+
+#sex {
+  height: 100%;
+  width: 100%;
+}
+
+.signup__main__checkarea_checkbox {
+  display: inline;
+}
+
+.signup__main__checkarea__text {
+  text-decoration: underline;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.signup__buttonarea {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5em;
+  width: 28.75em;
+  margin-top: 0.438em;
+}
+
+.signup__buttonarea__reset {
+  width: 49%;
+  height: 100%;
+}
+
+.signup__buttonarea__submit {
+  height: 100%;
+  width: 49%;
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #2db400;
+  border: none;
+}
+
+.commentary {
+  font-size: 0.7em;
+  margin-top: 0.438em;
+  background-color: #fafafa;
+}
+
+.signup__main__contents__catecory {
+  height: 2.5em;
+  width: 28.75em;
+  padding: 0.313em;
+  margin-top: 0.438em;
+  margin-bottom: 0;
+  border: solid #dadada 0.063em;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.signup__main__contents__catecory__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: white;
+}
+
+.signup__main__content__category__input {
+  background-color: white;
+  border: none;
+  text-decoration: none;
+}
+
+#favorate {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#favorate:focus {
+  outline: none;
+}
+
+.category_container {
+  background-color: white;
+  border: solid 1px gray;
+  padding: 1px 5px;
+  border-radius: 5px;
+  margin-right: 0.438em;
+  display: flex;
+  white-space: nowrap;
+  flex-direction: row;
+}
+
+.category_cancel {
+  background-color: white;
+}
+
+.category_contents {
+  background-color: white;
+  text-align: center;
+}
+
+#endarea {
+  margin-top: 15px;
 }

@@ -1,0 +1,55 @@
+.signin__title {
+  color: #2db400;
+  max-width: 28.75em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.signin__main__contents {
+  max-width: 28.75em;
+  height: 5.938em;
+  margin: 0 auto;
+}
+
+.signin__main__contents__text {
+  font-weight: bold;
+  height: 1.563em;
+}
+
+.signin__main__contents__input {
+  height: 2.5em;
+  width: 28.75em;
+  padding: 0.313em;
+  margin-top: 0.438em;
+  margin-bottom: 0;
+  border: solid #dadada 0.063em;
+  background-color: white;
+}
+
+.input__box {
+  height: 100%;
+  width: 100%;
+}
+
+.signin__main__contents__comment {
+  margin-top: 0;
+  height: 0.938em;
+}
+
+.signin__buttonarea {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5em;
+  width: 28.75em;
+  margin-top: 0.438em;
+}
+
+.signin__buttonarea__signup {
+  width: 49%;
+  height: 100%;
+}
+
+.signin__buttonarea__login {
+  height: 100%;
+  width: 49%;
+}
