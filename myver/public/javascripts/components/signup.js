@@ -137,8 +137,7 @@ const signup = () => {
               <button type="button" name="resetbtn" id="resetbtn" class="button">초기화</button>
             </div>
             <div class="signup__buttonarea__submit">
-              <button type="button" name="submitbtn" id="submitbtn" class="button"><a href="/">가입하기</a>
-              </button>
+              <button type="button" name="submitbtn" id="submitbtn" class="button"><a href="/">가입하기</a></button>
             </div>
           </div>
         </div>

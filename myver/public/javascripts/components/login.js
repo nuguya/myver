@@ -38,8 +38,9 @@ const login = () => {
         <div class="signup__main__contents" id="endarea">
           <div class="signin__buttonarea">
             <div class="signin__buttonarea__login">
-              <button type="button" name="loginbtn" id="loginbtn" class="button">
+              <button type="button" name="loginbtn" id="loginbtn" class="button"><a href="/">
                 로그인
+               </a>
               </button>
             </div>
             <div class="signin__buttonarea__signup">

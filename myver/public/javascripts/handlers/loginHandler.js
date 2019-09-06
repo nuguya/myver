@@ -1,4 +1,6 @@
-const addLoginEvent = function(router) {
+import router from "../router.js";
+
+const addLoginEvent = function() {
   const loginBtn = document.querySelector("#loginbtn");
   const signUpBtn = document.querySelector("#signupbtn");
   const userid = document.querySelector("#login_userid");
@@ -50,7 +52,28 @@ const addLoginEvent = function(router) {
     inputBlock.style.border = "";
   });
 
-  loginBtn.addEventListener("click", function() {});
+  loginBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    const path = e.target.getAttribute("href");
+    history.pushState({ path }, null, path);
+    fetch("http://127.0.0.1:3000/signin", {
+      method: "POST",
+      body: JSON.stringify({
+        userid: userid.value,
+        password: password.value
+      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        router(path, res);
+      });
+  });
   signUpBtn.addEventListener("click", function(e) {
     e.preventDefault();
     const path = e.target.getAttribute("href");

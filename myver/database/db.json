@@ -1,12 +1,15 @@
 {
   "users": {
-    "aaaaaa": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
     "emsud12": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
-    "wlsdmswl12": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
-    "asdfdsa": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
-    "asdfsdaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
-    "asdfsadf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
     "undefined": "{\"birthday\":\"undefined/undefined/undefined\"}",
-    "emsud": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}"
+    "sadfsdaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "asdfdsaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "sdafdsaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "sadfdsaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "asdfsdaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "asdfsadf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "asdfasdf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "rlarmsdud": "{\"password\":\"rhdqngofk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"emsud@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}"
   }
 }
