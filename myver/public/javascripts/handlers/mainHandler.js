@@ -1,4 +1,6 @@
-const addMainEvent = function(router) {
+import router from "../router.js";
+
+const addMainEvent = function() {
   const login = document.querySelector("#main__loginbtn");
   const signup = document.querySelector("#main__signupbtn");
 

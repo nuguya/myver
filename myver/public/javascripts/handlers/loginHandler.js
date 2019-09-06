@@ -1,5 +1,11 @@
 import router from "../router.js";
 
+const setCookie = (name, value) => {
+  var date = new Date();
+  date.setTime(date.getTime() + 10000);
+  document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+};
+
 const addLoginEvent = function() {
   const loginBtn = document.querySelector("#loginbtn");
   const signUpBtn = document.querySelector("#signupbtn");
@@ -57,21 +63,22 @@ const addLoginEvent = function() {
     const path = e.target.getAttribute("href");
     history.pushState({ path }, null, path);
     fetch("http://127.0.0.1:3000/signin", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
       method: "POST",
       body: JSON.stringify({
         userid: userid.value,
         password: password.value
-      }),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
+      })
     })
       .then(res => {
         return res.json();
       })
-      .then(res => {
-        router(path, res);
+      .then(json => {
+        setCookie("myverCookie", JSON.stringify(json));
+        router(path);
       });
   });
   signUpBtn.addEventListener("click", function(e) {

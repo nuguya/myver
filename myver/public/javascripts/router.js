@@ -1,35 +1,29 @@
-import Main from "./components/main.js";
-import Login from "./components/login.js";
-import Signup from "./components/signup.js";
-import addMainEvent from "./handlers/mainHandler.js";
-import addLoginEvent from "./handlers/loginHandler.js";
-import Validation from "./handlers/signupHandler.js";
-
-const renderHtml = function(component) {
-  const page = document.querySelector(".root");
-  page.innerHTML = component();
-};
+import makeLoginView from "./views/loginView.js";
+import makeSignUpView from "./views/signUpView.js";
+import makeMainView from "./views/mainView.js";
 
 const routes = {
-  "/": function(res) {
-    if (res == undefined) {
-      renderHtml(Main);
-      addMainEvent(router);
-      history.pushState({ path: "/" }, null, "/");
-    }
+  "/": function() {
+    fetch("http://127.0.0.1:3000/checkcookie")
+      .then(function(res) {
+        return res.json();
+      })
+      .then(function(json) {
+        makeMainView(json);
+      });
+
+    history.pushState({ path: "/" }, null, "/");
   },
   "/login": function() {
-    renderHtml(Login);
-    addLoginEvent(router);
+    makeLoginView();
   },
   "/signup": function() {
-    renderHtml(Signup);
-    Validation.addSignUpEvent(router);
+    makeSignUpView();
   }
 };
 
-const router = (path, res) => {
-  routes[path](res);
+const router = path => {
+  routes[path]();
 };
 
 export default router;

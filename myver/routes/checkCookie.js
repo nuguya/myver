@@ -6,9 +6,16 @@ const adapter = new FileSync("database/db.json");
 const db = low(adapter);
 const { isEmpty } = require("../utils/util.js");
 
-/* GET home page. */
 router.get("/", function(req, res, next) {
-  res.render("index", { title: "Express" });
+  if (isEmpty(req.cookies)) {
+    res.send({
+      login_state: false
+    });
+  } else {
+    res.send({
+      login_state: true
+    });
+  }
 });
 
 module.exports = router;
