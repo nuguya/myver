@@ -1,4 +1,5 @@
 import router from "../router.js";
+import cookieParse from "../utils/cookieParse.js";
 
 const addLogOffMainEvent = () => {
   const login = document.querySelector("#main__loginbtn");
@@ -24,9 +25,12 @@ const addLogInMainEvent = () => {
 
   logout.addEventListener("click", e => {
     let cookie = document.cookie;
+    const cookieName = cookieParse(cookie).name;
+    document.cookie = cookieName + "=; expires=Thu, 01 Jan 1999 00:00:10 GMT;";
     e.preventDefault();
     const path = e.target.getAttribute("href");
     history.pushState({ path: path }, null, path);
+    router(path);
   });
 };
 
