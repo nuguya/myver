@@ -11,5 +11,14 @@
     "asdfsadf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
     "asdfasdf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
     "rlarmsdud": "{\"password\":\"rhdqngofk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"emsud@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}"
+  },
+  "sessions": {
+    "ec3bd940-d07f-11e9-b938-33deb5011ea7": "emsud12",
+    "8c174f80-d080-11e9-b245-e197e558baa2": "emsud12",
+    "b7e66bf0-d085-11e9-9fcb-11bfbcdc401a": "asdfsdaf",
+    "3ebefd90-d086-11e9-be98-236bf5caa2c0": "asdfdsaf",
+    "5d3573d0-d086-11e9-b723-cf4255a1b0bf": "sadfasdf",
+    "090b2b00-d087-11e9-927f-2d893ddb5d5c": "asdfasfd",
+    "b5eaff30-d087-11e9-a288-3b37d7adfcda": "dasfdsaf"
   }
 }
