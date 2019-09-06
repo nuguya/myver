@@ -1,6 +1,7 @@
 import Main from "../components/main.js";
-import addMainEvent from "../handlers/mainHandler.js";
+import { addLogInMainEvent, addLogOffMainEvent } from "../handlers/mainHandler.js";
 import renderHtml from "./renderHTML.js";
+import cookieParse from "../utils/cookieParse.js";
 /**
  * rendering mainview page
  *
@@ -17,14 +18,28 @@ const makeMainView = function(login_state) {
   let state = login_state.login_state ? LOGIN : LOGOFF;
   switch (state) {
     case LOGOFF:
-      viewPage = `${Main()}<div class = "main__container"> 
-          <button type="button" id="main__loginbtn"><a href="/login">로그인</a></button>
-          <button type="button" id="main__signupbtn"><a href="/signup">회원가입</a></button></div>`;
-      handler = addMainEvent;
+      viewPage = `${Main()} 
+    <div class="main__container">
+      <div class="main__container__buttonarea">
+        <button type="button" id="main__loginbtn"><a href="/login">로그인</a></button>
+        <button type="button" id="main__signupbtn"><a href="/signup">회원가입</a></button>
+      </div>
+    </div>`;
+      handler = addLogOffMainEvent;
       break;
     case LOGIN:
       console.log(document.cookie);
-      viewPage = `${Main()}<p>fuck you</p>`;
+      let cookie = cookieParse(document.cookie);
+      viewPage = `${Main()}
+    <div class="main__container">
+      <div class="main__container__userinfo">
+        <div class="main__container__userinfo__userid">${cookie.user_id}</div>
+      </div>
+      <div class="main__container__buttonarea">
+        <button type="button" id="main__logoutbtn"><a href="/">로그아웃</a></button>
+      </div>
+    </div>`;
+      handler = addLogInMainEvent;
       break;
   }
   renderHtml(viewPage);

@@ -1,17 +1,17 @@
 import router from "../router.js";
 
-const addMainEvent = function() {
+const addLogOffMainEvent = () => {
   const login = document.querySelector("#main__loginbtn");
   const signup = document.querySelector("#main__signupbtn");
 
-  login.addEventListener("click", function(e) {
+  login.addEventListener("click", e => {
     e.preventDefault();
     const path = e.target.getAttribute("href");
     history.pushState({ path: path }, null, path);
     router(path);
   });
 
-  signup.addEventListener("click", function(e) {
+  signup.addEventListener("click", e => {
     e.preventDefault();
     const path = e.target.getAttribute("href");
     history.pushState({ path: path }, null, path);
@@ -19,4 +19,15 @@ const addMainEvent = function() {
   });
 };
 
-export default addMainEvent;
+const addLogInMainEvent = () => {
+  const logout = document.querySelector("#main__logoutbtn");
+
+  logout.addEventListener("click", e => {
+    let cookie = document.cookie;
+    e.preventDefault();
+    const path = e.target.getAttribute("href");
+    history.pushState({ path: path }, null, path);
+  });
+};
+
+export { addLogOffMainEvent, addLogInMainEvent };
