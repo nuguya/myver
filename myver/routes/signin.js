@@ -43,7 +43,7 @@ const establishSession = (ssid, userid) => {
  * @return {Object} object that fullfilled cookie value
  */
 
-const setCookie = (id, name, uid) => {
+const makeCookieValue = (id, name, uid) => {
   return { sesssion_id: id, username: name, user_id: uid };
 };
 
@@ -51,7 +51,7 @@ router.post("/", function(req, res, next) {
   if (compare(req.body)) {
     const id = generateID();
     establishSession(id, req.body.userid);
-    res.send(setCookie(id, req.body.username, req.body.userid));
+    res.send(makeCookieValue(id, req.body.username, req.body.userid));
   } else res.send({ login: false });
 });
 

@@ -1,6 +1,6 @@
 import Main from "../components/main.js";
 import { addLogInMainEvent, addLogOffMainEvent } from "../handlers/mainHandler.js";
-import renderHtml from "./renderHTML.js";
+import renderHtml from "../utils/renderHTML.js/";
 import cookieParse from "../utils/cookieParse.js";
 /**
  * rendering mainview page
@@ -42,7 +42,7 @@ const makeMainView = function(login_state) {
       handler = addLogInMainEvent;
       break;
   }
-  renderHtml(viewPage);
+  renderHtml(viewPage, ".root");
   if (handler == null) return;
   handler();
   return;
