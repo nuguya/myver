@@ -1,5 +1,5 @@
 import Login from "../components/login.js";
-import renderHtml from "../utils/renderHTML.js/";
+import renderHtml from "../utils/renderHTML.js";
 import addLoginEvent from "../handlers/loginHandler.js";
 
 const makeLoginView = function() {
