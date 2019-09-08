@@ -39,21 +39,20 @@ const establishSession = (ssid, userid) => {
 /**
  * Creates a cookie contents.
  *
- * @param {username,userid} userid and username that saved in db
+ * @param {ssid,username,userid} ssid,userid and username that saved in db
  * @return {Object} object that fullfilled cookie value
  */
 
-const setCookie = id => {
-  return { sesssion_id: id, username: "김근영", user_id: "emsud12" };
+const setCookie = (id, name, uid) => {
+  return { sesssion_id: id, username: name, user_id: uid };
 };
 
 router.post("/", function(req, res, next) {
   if (compare(req.body)) {
     const id = generateID();
     establishSession(id, req.body.userid);
-    res.send(setCookie(id));
-  }
-  res.send({ login: false });
+    res.send(setCookie(id, req.body.username, req.body.userid));
+  } else res.send({ login: false });
 });
 
 module.exports = router;

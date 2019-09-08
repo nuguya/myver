@@ -24,6 +24,13 @@ const deSerialize = req => {
   });
 };
 
+/**
+ * Duplicate Check at Login
+ *
+ * @param {userid} userid find duplicate userid in database
+ * @return {json} if userid is exist then return that else return null
+ */
+
 router.get("/:userid", function(req, res, next) {
   res.send(db.get("users").value()[req.params.userid]);
 });
