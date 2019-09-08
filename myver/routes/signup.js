@@ -24,6 +24,10 @@ const deSerialize = req => {
   });
 };
 
+router.get("/:userid", function(req, res, next) {
+  res.send(db.get("users").value()[req.params.userid]);
+});
+
 router.post("/", function(req, res, next) {
   db.set(`users.${req.body.userid}`, `${deSerialize(req.body)}`).write();
   res.json({ state: "success" });

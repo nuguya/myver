@@ -78,15 +78,26 @@ const Validation = {
     const comment = document.querySelector("#id__comment");
     const TEXT = 0,
       COLOR = 1;
+    let inavlidText = this.ID_TEXT.invalid;
     userid.addEventListener(
-      "input",
+      "change",
       function() {
         const validation = /^[a-z0-9_-]{5,20}$/;
         let validTestValue = validation.test(userid.value);
-        let commentary = validTestValue ? this.ID_TEXT.possible : this.ID_TEXT.invalid;
-        this.validationList.id = validTestValue;
-        comment.innerHTML = commentary[TEXT];
-        comment.style.color = commentary[COLOR];
+        fetch(`http://127.0.0.1:3000/signup/${userid.value}`)
+          .then(res => {
+            return res.text();
+          })
+          .then(res => {
+            if (res) {
+              inavlidText = this.ID_TEXT.occupied;
+              validTestValue = false;
+            }
+            let commentary = validTestValue ? this.ID_TEXT.possible : inavlidText;
+            this.validationList.id = validTestValue;
+            comment.innerHTML = commentary[TEXT];
+            comment.style.color = commentary[COLOR];
+          });
       }.bind(this)
     );
 
@@ -409,7 +420,6 @@ const Validation = {
   },
 
   registSignUP: function() {
-    let success = true;
     const form = document.querySelector("#signup_form");
     const message = {
       id: "아이디",
@@ -431,6 +441,8 @@ const Validation = {
     submitBtn.addEventListener(
       "click",
       function(e) {
+        let success = true;
+        e.preventDefault();
         this.validationList.category = ulElement.childNodes.length >= 3 ? true : false;
         this.validationList.agreement = agreementCheckBox.checked ? true : false;
         for (let key in this.validationList) {
@@ -440,31 +452,30 @@ const Validation = {
             break;
           }
         }
-
-        // if (success) {
-        for (let element of ulElement.childNodes) {
-          categorys.push(element.firstChild.textContent);
-        }
-        favorate.value = categorys;
-        e.preventDefault();
-        const path = e.target.getAttribute("href");
-        history.pushState({ path: path }, null, path);
-        router(path);
-        fetch("http://127.0.0.1:3000/users", {
-          method: "POST",
-          body: JSON.stringify(serialize(form)),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
+        if (success) {
+          for (let element of ulElement.childNodes) {
+            categorys.push(element.firstChild.textContent);
           }
-        })
-          .then(res => {
-            return res.json();
+          favorate.value = categorys;
+
+          const path = e.target.getAttribute("href");
+          history.pushState({ path: path }, null, path);
+          router(path);
+          fetch("http://127.0.0.1:3000/signup", {
+            method: "POST",
+            body: JSON.stringify(serialize(form)),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
           })
-          .then(data => {
-            console.log(data);
-          });
-        // }
+            .then(res => {
+              return res.json();
+            })
+            .then(data => {
+              console.log(data);
+            });
+        }
       }.bind(this)
     );
   },

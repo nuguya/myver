@@ -1,6 +1,6 @@
 {
   "users": {
-    "emsud12": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
+    "emsud12": "{\"password\":\"dhslrtldk!1A\",\"name\":\"김근옹\",\"birthday\":\"1994/3/24\",\"gender\":\"1\",\"email\":\"emsud@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}",
     "undefined": "{\"birthday\":\"undefined/undefined/undefined\"}",
     "sadfsdaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
     "asdfdsaf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
@@ -10,7 +10,9 @@
     "": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
     "asdfsadf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
     "asdfasdf": "{\"password\":\"\",\"name\":\"\",\"birthday\":\"/월/\",\"gender\":\"성별\",\"email\":\"\",\"phone_number\":\"\",\"favorate\":\"\"}",
-    "rlarmsdud": "{\"password\":\"rhdqngofk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"emsud@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}"
+    "rlarmsdud": "{\"password\":\"rhdqngofk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"emsud@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}",
+    "emsud1234": "{\"password\":\"dhslrtldk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"emsud@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"코딩,js,알고리즘\"}",
+    "dhslrtldk": "{\"password\":\"rhdqngofk!1A\",\"name\":\"김명수\",\"birthday\":\"1994/2/23\",\"gender\":\"1\",\"email\":\"emsud1@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}"
   },
   "sessions": {
     "ec3bd940-d07f-11e9-b938-33deb5011ea7": "emsud12",
@@ -23,6 +25,13 @@
     "ea7aa1a0-d0c9-11e9-8d05-bdc75f298723": "asdfdsa",
     "45c2b430-d0ca-11e9-aeac-074ac4821eb3": "asdf",
     "559944f0-d0ca-11e9-aa61-3b7ba5f9b815": "asdfdsa",
-    "64ea03e0-d0ca-11e9-857f-d92227e5ce0a": "adsfasdf"
+    "64ea03e0-d0ca-11e9-857f-d92227e5ce0a": "adsfasdf",
+    "70e2f1f0-d19e-11e9-9534-9daf94bcad40": "asdfsd",
+    "52da46c0-d1a0-11e9-a73f-3fb4e1379a96": "emsud1234",
+    "60c5f770-d1a0-11e9-a9dc-6ffeab85562e": "emsud1234",
+    "612e0810-d1a0-11e9-9ca8-25c12ee5a3df": "emsud1234",
+    "8dfcac70-d1a0-11e9-9a29-577121a437a0": "asdf",
+    "3fbe5990-d1a1-11e9-a74f-0756b8bbb711": "fasdfads",
+    "c77ba5e0-d1a1-11e9-9072-715ca69d69c0": "emsud1234"
   }
 }

@@ -77,8 +77,11 @@ const addLoginEvent = function() {
         return res.json();
       })
       .then(json => {
-        setCookie("myverCookie", JSON.stringify(json));
-        router(path);
+        if (json.login == false) alert("아이디와 비밀번호를 확인해주세요");
+        else {
+          setCookie("myverCookie", JSON.stringify(json));
+          router(path);
+        }
       });
   });
   signUpBtn.addEventListener("click", function(e) {

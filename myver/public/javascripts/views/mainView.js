@@ -33,7 +33,7 @@ const makeMainView = function(login_state) {
       viewPage = `${Main()}
     <div class="main__container">
       <div class="main__container__userinfo">
-        <div class="main__container__userinfo__userid">${cookie.value.user_id}</div>
+        <div class="main__container__userinfo__userid">${cookie.value.user_id}님 안녕하세요</div>
       </div>
       <div class="main__container__buttonarea">
         <button type="button" id="main__logoutbtn"><a href="/">로그아웃</a></button>

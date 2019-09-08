@@ -49,10 +49,11 @@ const setCookie = id => {
 
 router.post("/", function(req, res, next) {
   if (compare(req.body)) {
+    const id = generateID();
+    establishSession(id, req.body.userid);
+    res.send(setCookie(id));
   }
-  const id = generateID();
-  establishSession(id, req.body.userid);
-  res.send(setCookie(id));
+  res.send({ login: false });
 });
 
 module.exports = router;
