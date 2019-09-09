@@ -7,6 +7,7 @@ const db = low(adapter);
 const { isEmpty } = require("../utils/util.js");
 
 /* GET home page. */
+
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
 });

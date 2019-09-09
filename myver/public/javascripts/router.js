@@ -11,8 +11,8 @@ const routes = {
       .then(function(json) {
         makeMainView(json);
       });
-
-    history.pushState({ path: "/" }, null, "/");
+    console.log(history.state);
+    if (history.state == null) history.pushState({ path: "/" }, null, "/");
   },
   "/login": function() {
     makeLoginView();
@@ -23,6 +23,7 @@ const routes = {
 };
 
 const router = path => {
+  console.log(history.state);
   routes[path]();
 };
 

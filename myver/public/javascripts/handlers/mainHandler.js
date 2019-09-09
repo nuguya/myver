@@ -8,14 +8,14 @@ const addLogOffMainEvent = () => {
   login.addEventListener("click", e => {
     e.preventDefault();
     const path = e.target.getAttribute("href");
-    history.pushState({ path: path }, null, path);
+    history.pushState({ path }, null, path);
     router(path);
   });
 
   signup.addEventListener("click", e => {
     e.preventDefault();
     const path = e.target.getAttribute("href");
-    history.pushState({ path: path }, null, path);
+    history.pushState({ path }, null, path);
     router(path);
   });
 };

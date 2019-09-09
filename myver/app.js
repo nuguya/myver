@@ -8,6 +8,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/signup");
 var signinRouter = require("./routes/signin");
 var checkCookieRouter = require("./routes/checkCookie");
+const { isEmpty } = require("./utils/util.js");
 
 var app = express();
 

@@ -78,7 +78,7 @@ const Validation = {
     const comment = document.querySelector("#id__comment");
     const TEXT = 0,
       COLOR = 1;
-    let inavlidText = this.ID_TEXT.invalid;
+    let invalidText = this.ID_TEXT.invalid;
     userid.addEventListener(
       "change",
       function() {
@@ -90,10 +90,10 @@ const Validation = {
           })
           .then(res => {
             if (res) {
-              inavlidText = this.ID_TEXT.occupied;
+              invalidText = this.ID_TEXT.occupied;
               validTestValue = false;
             }
-            let commentary = validTestValue ? this.ID_TEXT.possible : inavlidText;
+            let commentary = validTestValue ? this.ID_TEXT.possible : invalidText;
             this.validationList.id = validTestValue;
             comment.innerHTML = commentary[TEXT];
             comment.style.color = commentary[COLOR];
@@ -286,14 +286,10 @@ const Validation = {
     });
 
     birthdayDate.addEventListener(
-      "change",
+      "input",
 
       function() {
-        let lastOfMonth = new Date(
-          new Date().getFullYear(),
-          new Date().getMonth() + 1,
-          0
-        ).getDate();
+        let lastOfMonth = new Date(new Date().getFullYear(), birthdayMonth.value, 0).getDate();
         if (birthdayDate.value >= 1 && birthdayDate.value <= lastOfMonth) {
           validationForBirthday[DAY] = true;
           let commentary = this.BIRTHDAY_TEXT.valid;
