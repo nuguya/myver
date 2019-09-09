@@ -5,6 +5,9 @@ const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("database/db.json");
 const db = low(adapter);
 const { generateID } = require("../utils/util.js");
+const COOKIE_TITLE = "myverCookie";
+const SESSION_TABLE = "sessions";
+const COOKIE_VALUE_SSID = "session_id";
 /**
  * comapre input of userid and password to db data
  *
@@ -33,7 +36,7 @@ const compare = reqJson => {
  */
 
 const establishSession = (ssid, userid) => {
-  db.set(`sessions.${ssid}`, `${userid}`).write();
+  db.set(`${SESSION_TABLE}.${ssid}`, `${userid}`).write();
 };
 
 /**
@@ -44,7 +47,7 @@ const establishSession = (ssid, userid) => {
  */
 
 const makeCookieValue = (id, name, uid) => {
-  return { sesssion_id: id, username: name, user_id: uid };
+  return { session_id: id, username: name, user_id: uid };
 };
 
 router.post("/", function(req, res, next) {

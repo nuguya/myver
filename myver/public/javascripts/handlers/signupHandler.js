@@ -5,7 +5,6 @@ import router from "../router.js";
 const serialize = form => {
   let serializer = {};
   for (let input of form) {
-    console.log(input);
     serializer[input.name] = input.value;
   }
   return serializer;
@@ -405,6 +404,9 @@ const Validation = {
       let response = confirm("모든 내용을 새로 작성하시겠습니까?");
       if (response) {
         form.reset();
+        for (let key in this.validationList) {
+          this.validationList[key] = false;
+        }
         while (ulElement.childNodes.length > 0) {
           ulElement.lastChild.remove();
           categoryList.style.height = "2.5em";

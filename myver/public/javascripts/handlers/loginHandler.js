@@ -2,7 +2,7 @@ import router from "../router.js";
 
 const setCookie = (name, value) => {
   var date = new Date();
-  date.setTime(date.getTime() + 10000);
+  date.setTime(date.getTime() + 1000000);
   document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
 };
 
