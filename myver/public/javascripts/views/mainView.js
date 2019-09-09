@@ -12,13 +12,29 @@ import cookieParse from "../utils/cookieParse.js";
 const LOGIN = 0,
   LOGOFF = 1;
 
-const makeMainView = function(login_state) {
+const makeList = function(object) {
+  let result = "";
+  for (let i in object) result += `<li>${object[i]}</li>`;
+  return result;
+};
+
+const makeMainView = async function(login_state) {
   let viewPage;
   let handler = null;
   let state = login_state.login_state ? LOGIN : LOGOFF;
+  let keywords;
+  let keywordList;
+  await fetch("http://127.0.0.1:3000/hotkeword")
+    .then(res => {
+      return res.json();
+    })
+    .then(res => {
+      keywords = res;
+    });
+  keywordList = makeList(keywords);
   switch (state) {
     case LOGOFF:
-      viewPage = `${Main()} 
+      viewPage = `${Main(keywordList)} 
     <div class="main__container">
       <div class="main__container__buttonarea">
         <div class="main__container__buttonarea__login">
@@ -33,13 +49,15 @@ const makeMainView = function(login_state) {
       break;
     case LOGIN:
       let cookie = cookieParse(document.cookie);
-      viewPage = `${Main()}
+      viewPage = `${Main(keywordList)}
     <div class="main__container">
-      <div class="main__container__userinfo">
-        <div class="main__container__userinfo__userid">${cookie.value.user_id}님 안녕하세요</div>
-      </div>
-      <div class="main__container__buttonarea">
-      <a href="/" type="button" id="main__logoutbtn" class="linkLikeButton">로그아웃</a>
+      <div class="main__container__columns">
+        <div class="main__container__userinfo">
+          <p class="main__container__userinfo__userid">${cookie.value.user_id}님 안녕하세요</p>
+        </div>
+        <div class="main__container__buttonarea">
+        <a href="/" type="button" id="main__logoutbtn" class="linkLikeButton">로그아웃</a>
+        </div>
       </div>
     </div>`;
       handler = addLogInMainEvent;

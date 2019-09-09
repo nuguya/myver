@@ -1,3 +1,24 @@
+#myver_header {
+  color: #2db400;
+  max-width: 28.75em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.main__container {
+  display: flex;
+  justify-content: center;
+}
+
+.main__container__columns {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__container__userinfo__userid {
+  text-align: center;
+}
+
 .main__container__buttonarea {
   display: flex;
   justify-content: space-between;
@@ -16,4 +37,44 @@
   display: flex;
   width: 49%;
   height: 100%;
+}
+
+.hotkewords {
+  font-size: 10px;
+}
+.main__container__hotkewords {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  float: left;
+  list-style: none;
+  margin: 1px;
+}
+
+li a {
+  display: block;
+  width: 150px;
+  height: 40px;
+  background: #c00;
+
+  text-align: center;
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+li a span {
+  display: block;
+}
+
+li a:hover {
+  background: #099;
+  text-decoration: none;
 }

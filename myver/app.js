@@ -9,6 +9,8 @@ var usersRouter = require("./routes/signup");
 var signinRouter = require("./routes/signin");
 var checkCookieRouter = require("./routes/checkCookie");
 const { isEmpty } = require("./utils/util.js");
+const request = require("request");
+const cheerio = require("cheerio");
 
 const app = express();
 
@@ -22,6 +24,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/hotkeword", function(req, res, next) {
+  request("https://www.naver.com/", (err, response, body) => {
+    const keyWords = {};
+    const $ = (jQuery = cheerio.load(body));
+    let count = 0;
+    //데이터 추출
+    $(".ah_item").each(function(item) {
+      let keword = $(this)
+        .find(".ah_k")
+        .text()
+        .trim();
+      if (count++ < 20) keyWords[count] = keword;
+    });
+
+    res.send(keyWords);
+  });
+});
 app.use("/", indexRouter);
 app.use("/signup", usersRouter);
 app.use("/signin", signinRouter);

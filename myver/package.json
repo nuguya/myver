@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "cookie-parser": "~1.4.4",
     "crypto": "^1.0.1",
     "debug": "~2.6.9",
@@ -14,6 +15,7 @@
     "lowdb": "^1.0.0",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11",
+    "request": "^2.88.0",
     "uuid": "^3.3.3"
   }
 }
