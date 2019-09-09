@@ -5,6 +5,7 @@ import router from "../router.js";
 const serialize = form => {
   let serializer = {};
   for (let input of form) {
+    console.log(input);
     serializer[input.name] = input.value;
   }
   return serializer;

@@ -1,0 +1,19 @@
+.main__container__buttonarea {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5em;
+  width: 28.75em;
+  margin-top: 0.438em;
+}
+
+.main__container__buttonarea__login {
+  display: flex;
+  width: 49%;
+  height: 100%;
+}
+
+.main__container__buttonarea__signup {
+  display: flex;
+  width: 49%;
+  height: 100%;
+}

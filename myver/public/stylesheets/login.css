@@ -45,11 +45,13 @@
 }
 
 .signin__buttonarea__signup {
+  display: flex;
   width: 49%;
   height: 100%;
 }
 
 .signin__buttonarea__login {
+  display: flex;
   height: 100%;
   width: 49%;
 }

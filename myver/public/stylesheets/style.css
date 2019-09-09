@@ -58,6 +58,15 @@ ul {
   display: none;
 }
 
+.linkLikeButton {
+  text-align: center;
+  text-decoration: none;
+  padding-top: 10px;
+  color: white;
+  background-color: #2db400;
+  flex-grow: 1;
+}
+
 .signup__title {
   color: #2db400;
   max-width: 28.75em;
@@ -160,6 +169,7 @@ ul {
 }
 
 .signup__buttonarea__submit {
+  display: flex;
   height: 100%;
   width: 49%;
 }

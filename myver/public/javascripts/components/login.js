@@ -38,16 +38,10 @@ const login = () => {
         <div class="signup__main__contents" id="endarea">
           <div class="signin__buttonarea">
             <div class="signin__buttonarea__login">
-              <button type="button" name="loginbtn" id="loginbtn" class="button"><a href="/">
-                로그인
-               </a>
-              </button>
+              <a href="/" type="button" name="loginbtn" id="loginbtn" class="linkLikeButton">로그인</a>
             </div>
             <div class="signin__buttonarea__signup">
-              <button type="button" name="signupbtn" id="signupbtn" class="button"><a href="/signup">
-                회원가입
-                </a>
-              </button>
+              <a href="/signup" type="button" name="signupbtn" id="signupbtn" class="linkLikeButton">회원가입</a>
             </div>
           </div>
         </div>

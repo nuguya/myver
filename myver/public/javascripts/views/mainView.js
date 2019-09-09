@@ -21,8 +21,12 @@ const makeMainView = function(login_state) {
       viewPage = `${Main()} 
     <div class="main__container">
       <div class="main__container__buttonarea">
-        <button type="button" id="main__loginbtn"><a href="/login">로그인</a></button>
-        <button type="button" id="main__signupbtn"><a href="/signup">회원가입</a></button>
+        <div class="main__container__buttonarea__login">
+          <a href="/login" type="button" id="main__loginbtn" class="linkLikeButton">로그인</a>
+        </div>
+        <div class="main__container__buttonarea__signup">
+          <a href="/signup" type="button" id="main__signupbtn" class="linkLikeButton">회원가입</a>
+        </div>
       </div>
     </div>`;
       handler = addLogOffMainEvent;
@@ -36,7 +40,7 @@ const makeMainView = function(login_state) {
         <div class="main__container__userinfo__userid">${cookie.value.user_id}님 안녕하세요</div>
       </div>
       <div class="main__container__buttonarea">
-        <button type="button" id="main__logoutbtn"><a href="/">로그아웃</a></button>
+      <a href="/" type="button" id="main__logoutbtn" class="linkLikeButton">로그아웃</a>
       </div>
     </div>`;
       handler = addLogInMainEvent;

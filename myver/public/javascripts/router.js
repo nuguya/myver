@@ -11,7 +11,6 @@ const routes = {
       .then(function(json) {
         makeMainView(json);
       });
-    console.log(history.state);
     if (history.state == null) history.pushState({ path: "/" }, null, "/");
   },
   "/login": function() {
