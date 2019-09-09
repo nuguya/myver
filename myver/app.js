@@ -10,7 +10,7 @@ var signinRouter = require("./routes/signin");
 var checkCookieRouter = require("./routes/checkCookie");
 const { isEmpty } = require("./utils/util.js");
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
