@@ -1,6 +1,13 @@
 {
   "users": {
-    "emsud12": "{\"password\":\"dhslrtldk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"emsud1@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"코딩,알고리즘,백엔드개발\"}"
+    "emsud12": "{\"password\":\"dhslrtldk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"emsud1@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"코딩,알고리즘,백엔드개발\"}",
+    "emsud1234": "{\"password\":\"dhslrtldk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"emsud1@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}",
+    "wlsdmswl12": "{\"password\":\"dhslrtldk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/2\",\"gender\":\"1\",\"email\":\"emsud@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}",
+    "emsud": "{\"password\":\"dhslrtldk!1A\",\"name\":\"김근영\",\"birthday\":\"1994/5/24\",\"gender\":\"1\",\"email\":\"test@naver.com\",\"phone_number\":\"01094945783\",\"favorate\":\"1,2,3\"}"
   },
-  "sessions": {}
+  "sessions": {
+    "471a45d0-d2f7-11e9-aa3d-f30d265d5b4f": "emsud1234",
+    "9c899c50-d2f7-11e9-9988-31726629761d": "emsud12",
+    "ca96db30-d2f7-11e9-a3db-e7817a00327c": "emsud"
+  }
 }

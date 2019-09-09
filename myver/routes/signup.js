@@ -34,6 +34,7 @@ const deSerialize = req => {
 
 router.get("/:userid", function(req, res, next) {
   res.send(db.get("users").value()[req.params.userid]);
+  console.log("asdf");
 });
 
 router.post("/", function(req, res, next) {
