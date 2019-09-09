@@ -6,17 +6,37 @@ const adapter = new FileSync("database/db.json");
 const db = low(adapter);
 const crpyto = require("crypto");
 const signinRouter = require("./signin");
+const saltLength = 88;
+const count = 102313;
+
+/**
+ * crypt password with pbkdf2
+ *
+ * @param {userid,password} req body userid and password
+ * @return {Promise} promise pending that sha512
+ */
+
+const encryptPassword = (userid, password) => {
+  return new Promise(resolve => {
+    crpyto.randomBytes(64, (err, buf) => {
+      crpyto.pbkdf2(password, buf.toString("base64"), count, 64, "sha512", (err, key) => {
+        // console.log((buf.toString("base64") + key.toString("base64")).substr(0, 88));
+        resolve(buf.toString("base64") + key.toString("base64"));
+      });
+    });
+  });
+};
 
 /**
  * make a serializer to user's input.
  *
- * @param {respone.body object} d The desired diameter of the circle.
+ * @param {respone.body object,encryptPassword} d The desired diameter of the circle.
  * @return {string} The new Circle object.
  */
 
-const deSerialize = req => {
+const deSerialize = (req, encryptPassword) => {
   return JSON.stringify({
-    password: req.password,
+    password: encryptPassword,
     name: req.name,
     birthday: `${req.year}/${req.month}/${req.day}`,
     gender: req.sex,
@@ -38,11 +58,10 @@ router.get("/:userid", function(req, res, next) {
 });
 
 router.post("/", function(req, res, next) {
-  db.set(`users.${req.body.userid}`, `${deSerialize(req.body)}`).write();
-
-  //res.json({ state: "success" });
-
-  next("route");
+  encryptPassword(req.body.userid, req.body.password).then(res => {
+    db.set(`users.${req.body.userid}`, `${deSerialize(req.body, res)}`).write();
+    next("route");
+  });
 });
 
 router.post("/", signinRouter);

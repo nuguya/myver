@@ -32,7 +32,6 @@ const makeMainView = function(login_state) {
       handler = addLogOffMainEvent;
       break;
     case LOGIN:
-      console.log(document.cookie);
       let cookie = cookieParse(document.cookie);
       viewPage = `${Main()}
     <div class="main__container">

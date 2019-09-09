@@ -11,7 +11,6 @@ const SESSION_TABLE = "sessions";
 const COOKIE_VALUE_SSID = "session_id";
 
 router.get("/", function(req, res, next) {
-  console.log("asdf");
   if (isEmpty(req.cookies)) {
     res.send({
       login_state: false
@@ -19,7 +18,7 @@ router.get("/", function(req, res, next) {
   } else {
     const cookie = JSON.parse(req.cookies[COOKIE_TITLE]);
     const ssid = cookie[COOKIE_VALUE_SSID];
-    const loginState = ssid !== undefined ? true : false;
+    const loginState = ssid != undefined ? true : false;
     res.send({
       login_state: loginState
     });

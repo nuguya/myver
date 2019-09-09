@@ -3,12 +3,30 @@ const router = express.Router();
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("database/db.json");
-const db = low(adapter);
 const { generateID } = require("../utils/util.js");
 const COOKIE_TITLE = "myverCookie";
 const SESSION_TABLE = "sessions";
 const COOKIE_VALUE_SSID = "session_id";
-const app = express();
+const crpyto = require("crypto");
+
+const decryptPassword = (password, encryptPassword) => {
+  const saltLength = 88;
+  const count = 102313;
+
+  return new Promise((resolve, reject) => {
+    crpyto.pbkdf2(
+      password,
+      encryptPassword.substr(0, saltLength),
+      count,
+      64,
+      "sha512",
+      (err, key) => {
+        resolve(encryptPassword.substr(0, saltLength) + key.toString("base64"));
+        reject("실패");
+      }
+    );
+  });
+};
 
 /**
  * comapre input of userid and password to db data
@@ -17,15 +35,15 @@ const app = express();
  * @return {boolean} match userid and password
  */
 
-const compare = reqJson => {
-  const adapter = new FileSync("database/db.json");
+const compare = async reqJson => {
   const db = low(adapter);
   const userTable = db.get("users");
   const sourceID = reqJson.userid;
   const targetID = userTable.value()[sourceID];
   if (targetID) {
-    const sourcePassword = reqJson.password;
+    let sourcePassword = reqJson.password;
     const targetPassword = JSON.parse(targetID).password;
+    sourcePassword = await decryptPassword(sourcePassword, targetPassword);
     const result = sourcePassword === targetPassword ? true : false;
     return result;
   }
@@ -40,6 +58,7 @@ const compare = reqJson => {
  */
 
 const establishSession = (ssid, userid) => {
+  const db = low(adapter);
   db.set(`${SESSION_TABLE}.${ssid}`, `${userid}`).write();
 };
 
@@ -55,11 +74,13 @@ const makeCookieValue = (id, name, uid) => {
 };
 
 router.post("/", function(req, res, next) {
-  if (compare(req.body)) {
-    const id = generateID();
-    establishSession(id, req.body.userid);
-    res.send(makeCookieValue(id, req.body.name, req.body.userid));
-  } else res.send({ login: false });
+  compare(req.body).then(valid => {
+    if (valid) {
+      const id = generateID();
+      establishSession(id, req.body.userid);
+      res.send(makeCookieValue(id, req.body.name, req.body.userid));
+    } else res.send({ login: false });
+  });
 });
 
 module.exports = router;
