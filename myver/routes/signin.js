@@ -8,6 +8,8 @@ const { generateID } = require("../utils/util.js");
 const COOKIE_TITLE = "myverCookie";
 const SESSION_TABLE = "sessions";
 const COOKIE_VALUE_SSID = "session_id";
+const app = express();
+
 /**
  * comapre input of userid and password to db data
  *
@@ -16,6 +18,8 @@ const COOKIE_VALUE_SSID = "session_id";
  */
 
 const compare = reqJson => {
+  const adapter = new FileSync("database/db.json");
+  const db = low(adapter);
   const userTable = db.get("users");
   const sourceID = reqJson.userid;
   const targetID = userTable.value()[sourceID];
@@ -54,7 +58,7 @@ router.post("/", function(req, res, next) {
   if (compare(req.body)) {
     const id = generateID();
     establishSession(id, req.body.userid);
-    res.send(makeCookieValue(id, req.body.username, req.body.userid));
+    res.send(makeCookieValue(id, req.body.name, req.body.userid));
   } else res.send({ login: false });
 });
 

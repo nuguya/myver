@@ -1,10 +1,5 @@
 import router from "../router.js";
-
-const setCookie = (name, value) => {
-  var date = new Date();
-  date.setTime(date.getTime() + 1000000);
-  document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
-};
+import setCookie from "../utils/setCookie.js";
 
 const addLoginEvent = function() {
   const loginBtn = document.querySelector("#loginbtn");

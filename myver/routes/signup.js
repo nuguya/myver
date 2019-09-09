@@ -5,6 +5,7 @@ const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("database/db.json");
 const db = low(adapter);
 const crpyto = require("crypto");
+const signinRouter = require("./signin");
 
 /**
  * make a serializer to user's input.
@@ -34,12 +35,16 @@ const deSerialize = req => {
 
 router.get("/:userid", function(req, res, next) {
   res.send(db.get("users").value()[req.params.userid]);
-  console.log("asdf");
 });
 
 router.post("/", function(req, res, next) {
   db.set(`users.${req.body.userid}`, `${deSerialize(req.body)}`).write();
-  res.json({ state: "success" });
+
+  //res.json({ state: "success" });
+
+  next("route");
 });
+
+router.post("/", signinRouter);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 import modalPopup from "./modalHandler.js";
 import addCategoriesEvent from "./categoriesHandler.js";
 import router from "../router.js";
+import setCookie from "../utils/setCookie.js";
 
 const serialize = form => {
   let serializer = {};
@@ -471,8 +472,13 @@ const Validation = {
             .then(res => {
               return res.json();
             })
-            .then(data => {
-              console.log(data);
+            .then(json => {
+              if (json.login == false);
+              else {
+                console.log(json);
+                setCookie("myverCookie", JSON.stringify(json));
+                router(path);
+              }
             });
         }
       }.bind(this)
