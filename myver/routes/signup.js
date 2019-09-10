@@ -3,7 +3,6 @@ const router = express.Router();
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("database/db.json");
-const db = low(adapter);
 const crpyto = require("crypto");
 const signinRouter = require("./signin");
 const saltLength = 88;
@@ -54,12 +53,14 @@ const deSerialize = (req, encryptPassword) => {
  */
 
 router.get("/:userid", function(req, res, next) {
+  const db = low(adapter);
   res.send(db.get("users").value()[req.params.userid]);
 });
 
 router.post("/", function(req, res, next) {
-  encryptPassword(req.body.userid, req.body.password).then(res => {
-    db.set(`users.${req.body.userid}`, `${deSerialize(req.body, res)}`).write();
+  const db = low(adapter);
+  encryptPassword(req.body.userid, req.body.password).then(password => {
+    db.set(`users.${req.body.userid}`, `${deSerialize(req.body, password)}`).write();
     next("route");
   });
 });

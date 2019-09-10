@@ -22,7 +22,6 @@ const routes = {
 };
 
 const router = path => {
-  console.log(history.state);
   routes[path]();
 };
 

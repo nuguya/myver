@@ -475,7 +475,6 @@ const Validation = {
             .then(json => {
               if (json.login == false);
               else {
-                console.log(json);
                 setCookie("myverCookie", JSON.stringify(json));
                 router(path);
               }

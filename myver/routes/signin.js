@@ -12,7 +12,6 @@ const crpyto = require("crypto");
 const decryptPassword = (password, encryptPassword) => {
   const saltLength = 88;
   const count = 102313;
-
   return new Promise((resolve, reject) => {
     crpyto.pbkdf2(
       password,
@@ -45,9 +44,11 @@ const compare = async reqJson => {
     const targetPassword = JSON.parse(targetID).password;
     sourcePassword = await decryptPassword(sourcePassword, targetPassword);
     const result = sourcePassword === targetPassword ? true : false;
-    return result;
+    return new Promise(resolve => {
+      resolve(result);
+    });
   }
-  return false;
+  return new Promise(resolve => resolve(false));
 };
 
 /**
@@ -69,18 +70,17 @@ const establishSession = (ssid, userid) => {
  * @return {Object} object that fullfilled cookie value
  */
 
-const makeCookieValue = (id, name, uid) => {
-  return { session_id: id, username: name, user_id: uid };
+const makeCookieValue = (id, uid) => {
+  return { session_id: id, user_id: uid };
 };
 
-router.post("/", function(req, res, next) {
-  compare(req.body).then(valid => {
-    if (valid) {
-      const id = generateID();
-      establishSession(id, req.body.userid);
-      res.send(makeCookieValue(id, req.body.name, req.body.userid));
-    } else res.send({ login: false });
-  });
+router.post("/", async function(req, res, next) {
+  let valid = await compare(req.body);
+  if (valid) {
+    const id = generateID();
+    establishSession(id, req.body.userid);
+    res.send(makeCookieValue(id, req.body.userid));
+  } else res.send({ login: false });
 });
 
 module.exports = router;
